@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Abby M and Thomas W\'s App',
+      title: 'Abby M and Thomas W and Dylan Millers\'s App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -27,7 +27,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Abby M and Thomas W's App")),
+      appBar: AppBar(title: const Text("Abby M and Thomas W and Dylan Miller's App")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,6 +51,14 @@ class IntroPage extends StatelessWidget {
               },
               child: const Text("Abby M's Page"),
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(onPressed: () {
+            Navigator.push(
+              context,
+            MaterialPageRoute(builder: (context) => DylanMillerPage())
+            );
+          }, child: Text("Dylan Miller's Page")
+          ),
           ],
         ),
       ),
@@ -145,6 +153,100 @@ class AbbyMPage extends StatelessWidget {
             ),
         ]
        )
+    );
+  }
+}
+
+class DylanMillerPage extends StatelessWidget {
+  const DylanMillerPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Dylan Miller's Page")),
+          body: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Do you like dogs?"),
+                    const SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: ()
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder : (context) => const RightPage())
+                        );
+                      }, child: Text('Yes')),
+                      const SizedBox(height: 10),
+                      ElevatedButton(
+                      onPressed: ()
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder : (context) => const WrongPage())
+                        );
+                      }, child: Text('No'))
+                  ],
+                ),
+            ],
+          )
+    );
+  }
+}
+
+class RightPage extends StatelessWidget {
+  const RightPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Right On!")),
+          body: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Here you go!"),
+                  Image(
+                  image:AssetImage('assets/puppies.png'),
+                  width: 700,
+                  height: 700,
+                ),
+                  ],
+                  ),
+            ],
+          )
+    );
+  }
+}
+
+class WrongPage extends StatelessWidget {
+  const WrongPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Ooops.")),
+          body: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("You're wrong!"),
+                  const SizedBox(height: 10),
+                  ElevatedButton(onPressed: ()
+                  {
+                    Navigator.pop(context);
+                  }, child: Text("Try again."))
+                  ],
+                  ),
+            ],
+          )
     );
   }
 }
