@@ -27,7 +27,8 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Abby M and Thomas W and Dylan Miller's App")),
+      appBar: AppBar(
+          title: const Text("Abby M and Thomas W and Dylan Miller's App")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -52,13 +53,14 @@ class IntroPage extends StatelessWidget {
               child: const Text("Abby M's Page"),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(onPressed: () {
-            Navigator.push(
-              context,
-            MaterialPageRoute(builder: (context) => DylanMillerPage())
-            );
-          }, child: Text("Dylan Miller's Page")
-          ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DylanMillerPage()));
+                },
+                child: Text("Dylan Miller's Page")),
           ],
         ),
       ),
@@ -66,7 +68,7 @@ class IntroPage extends StatelessWidget {
   }
 }
 
-// Thomas W's Page with Images
+// Thomas W's Page with Images Left & Right, Buttons Centered
 class ThomasWPage extends StatelessWidget {
   const ThomasWPage({super.key});
 
@@ -77,29 +79,39 @@ class ThomasWPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/house.png', height: 200),
-          const SizedBox(height: 20),
-          Image.asset('assets/dog.png', height: 150),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const FirstFloorPage()),
-              );
-            },
-            child: const Text("First Floor"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/house.png', height: 200),
+              const SizedBox(width: 20),
+              Image.asset('assets/dog.png', height: 200),
+            ],
           ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const SecondFloorPage()),
-              );
-            },
-            child: const Text("Second Floor"),
+          const SizedBox(height: 30),
+          Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FirstFloorPage()),
+                  );
+                },
+                child: const Text("First Floor"),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SecondFloorPage()),
+                  );
+                },
+                child: const Text("Second Floor"),
+              ),
+            ],
           ),
         ],
       ),
@@ -114,46 +126,43 @@ class AbbyMPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Abby M's Page")),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-          children:[
+        appBar: AppBar(title: const Text("Abby M's Page")),
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-             crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image(
-                  image:AssetImage('assets/ispy.png'),
-                  width: 400,
-                  height: 400,
-                ),
-              ],
-            ),
-          
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image(
+                image: AssetImage('assets/ispy.png'),
+                width: 400,
+                height: 400,
+              ),
+            ],
+          ),
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text("How many dogs do you see?",
-                style: TextStyle(fontSize: 18),                
-                )
-              ],
-            ),
-
-            Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "How many dogs do you see?",
+                style: TextStyle(fontSize: 18),
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const DogNumberPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const DogNumberPage()),
                     );
-                  }, child: const Text("Answer")),
-              ],
-            ),
-        ]
-       )
-    );
+                  },
+                  child: const Text("Answer")),
+            ],
+          ),
+        ]));
   }
 }
 
@@ -163,37 +172,36 @@ class DylanMillerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Dylan Miller's Page")),
-          body: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Do you like dogs?"),
-                    const SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: ()
-                      {
-                        Navigator.push(
+        appBar: AppBar(title: const Text("Dylan Miller's Page")),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Do you like dogs?"),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
                           context,
-                          MaterialPageRoute(builder : (context) => const RightPage())
-                        );
-                      }, child: Text('Yes')),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                      onPressed: ()
-                      {
-                        Navigator.push(
+                          MaterialPageRoute(
+                              builder: (context) => const RightPage()));
+                    },
+                    child: Text('Yes')),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
                           context,
-                          MaterialPageRoute(builder : (context) => const WrongPage())
-                        );
-                      }, child: Text('No'))
-                  ],
-                ),
-            ],
-          )
-    );
+                          MaterialPageRoute(
+                              builder: (context) => const WrongPage()));
+                    },
+                    child: Text('No'))
+              ],
+            ),
+          ],
+        ));
   }
 }
 
@@ -203,24 +211,23 @@ class RightPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Right On!")),
-          body: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Here you go!"),
-                  Image(
-                  image:AssetImage('assets/puppies.png'),
+        appBar: AppBar(title: const Text("Right On!")),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Here you go!"),
+                Image(
+                  image: AssetImage('assets/puppies.png'),
                   width: 700,
                   height: 700,
                 ),
-                  ],
-                  ),
-            ],
-          )
-    );
+              ],
+            ),
+          ],
+        ));
   }
 }
 
@@ -230,24 +237,24 @@ class WrongPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Ooops.")),
-          body: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("You're wrong!"),
-                  const SizedBox(height: 10),
-                  ElevatedButton(onPressed: ()
-                  {
-                    Navigator.pop(context);
-                  }, child: Text("Try again."))
-                  ],
-                  ),
-            ],
-          )
-    );
+        appBar: AppBar(title: const Text("Ooops.")),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("You're wrong!"),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text("Try again."))
+              ],
+            ),
+          ],
+        ));
   }
 }
 
@@ -257,25 +264,22 @@ class DogNumberPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text(" ")),
-          body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
+        appBar: AppBar(title: const Text(" ")),
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text("The Correct Answer is: 12",
-                style: TextStyle(fontSize: 18),                
-                )
-              ],
-            ),
-        ]
-       )
-    );
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "The Correct Answer is: 12",
+                style: TextStyle(fontSize: 18),
+              )
+            ],
+          ),
+        ]));
   }
 }
 
-// First Floor Page with Navigation Buttons
+// First Floor Page with Images Left & Right, Buttons Centered
 class FirstFloorPage extends StatelessWidget {
   const FirstFloorPage({super.key});
 
@@ -286,26 +290,35 @@ class FirstFloorPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/kitchen.png', height: 200),
-          const SizedBox(height: 20),
-          Image.asset('assets/familyroom.png', height: 200),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const SecondFloorPage()),
-              );
-            },
-            child: const Text("Walk Upstairs"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/kitchen.png', height: 200),
+              const SizedBox(width: 20),
+              Image.asset('assets/familyroom.png', height: 200),
+            ],
           ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text("Leave the House"),
+          const SizedBox(height: 30),
+          Column(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SecondFloorPage()),
+                  );
+                },
+                child: const Text("Walk Upstairs"),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("Leave the House"),
+              ),
+            ],
           ),
         ],
       ),
@@ -313,7 +326,7 @@ class FirstFloorPage extends StatelessWidget {
   }
 }
 
-// Second Floor Page with Navigation Buttons
+// Second Floor Page with Images Left & Right, Buttons Centered
 class SecondFloorPage extends StatelessWidget {
   const SecondFloorPage({super.key});
 
@@ -324,10 +337,15 @@ class SecondFloorPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/bedroom.png', height: 200),
-          const SizedBox(height: 20),
-          Image.asset('assets/bathroom.png', height: 200),
-          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/bedroom.png', height: 200),
+              const SizedBox(width: 20),
+              Image.asset('assets/bathroom.png', height: 200),
+            ],
+          ),
+          const SizedBox(height: 30),
           ElevatedButton(
             onPressed: () {
               Navigator.pop(context);
